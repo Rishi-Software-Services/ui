@@ -1,0 +1,42 @@
+{
+ "actions": [],
+ "creation": "2020-07-06 07:08:52.567306",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Text",
+   "label": "Name",
+   "options": "1"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2020-07-06 07:14:41.191453",
+ "modified_by": "Administrator",
+ "module": "Ui",
+ "name": "ui doc",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
