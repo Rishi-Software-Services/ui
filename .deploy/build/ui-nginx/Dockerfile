@@ -2,6 +2,8 @@ FROM bitnami/node:12-prod
 
 COPY .deploy/build/ui-nginx/install_app.sh /install_app.sh
 
+RUN chmod 755 /install_app.sh
+
 RUN /install_app.sh ui https://github.com/Rishi-Software-Services/ui
 
 FROM frappe/erpnext-nginx:version-13-beta
