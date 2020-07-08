@@ -1,0 +1,30 @@
+sudo: required
+
+dist: bionic
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+before_install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - sudo apt update && sudo apt install -y git
+
+jobs:
+  include:
+    - stage: "Build UI Docker Images"
+      name: "UI Worker [Latest]"
+      script:
+        - docker build -t rishira1/ui-worker:latest -f .deploy/build/ui-worker/Dockerfile .
+        - docker tag rishira1/ui-worker rishira1/ui-worker:version-13-beta
+        - docker push rishira1/ui-worker:latest
+        - docker push rishira1/ui-worker:version-13-beta
+    - name: "UI NGINX [Latest]"
+      script:
+        - docker build -t rishira1/ui-nginx:latest -f .deploy/build/ui-nginx/Dockerfile .
+        - docker tag rishira1/ui-nginx rishira1/ui-nginx:version-13-beta
+        - docker push rishira1/ui-nginx:latest
+        - docker push rishira1/ui-nginx:version-13-beta
